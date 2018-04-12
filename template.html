@@ -2,7 +2,8 @@
 <html lang="en" ng-app="app" ng-controller="appCtrl">
 <head>
   <meta charset="UTF-8">
-  <title><%= htmlWebpackPlugin.options.title%></title>
+  <!--<title><%= htmlWebpackPlugin.options.title%></title>-->
+  <title>webpack-AngularJs</title>
 </head>
 <body>
 <div>
@@ -11,7 +12,7 @@
 </body>
 </html>
 <!--
-模板插件的取值和使用完全遵循js的语法和用法,这种写法就是可以方便直接创建script标签指定src引入哪个打包之后的bundles,此时需要指定inject的参数值是false（在 webpack-html-plugin插件配置中的参数） htmlWebpackPlugin.files.chunks.a.entry,但是在打包之后所有的chunk文件都是共享的，所以不清楚哪个文件需要引入哪个chunk.可以设置chunk参数，以数组的形式指定这个HTML当前文件需要引入的chunk
+模板插件的取值和使用完全遵循js的语法和用法,这种写法就是可以方便直接创建script标签指定src引入哪个打包之后的bundles,此时需要指定inject的参数值是false（在 webpack-template-plugin插件配置中的参数） htmlWebpackPlugin.files.chunks.a.entry,但是在打包之后所有的chunk文件都是共享的，所以不清楚哪个文件需要引入哪个chunk.可以设置chunk参数，以数组的形式指定这个HTML当前文件需要引入的chunk
 <%= htmlWebpackPlugin.options.date%>
 <%= htmlWebpackPlugin.files%>
 <% for(var key in htmlWebpackPlugin.files) {%>
