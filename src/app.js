@@ -1,16 +1,13 @@
  import angular from 'angular'
  import uirouter from '@uirouter/angularjs'
  import routes from './app.router'
+ import main from './view'
 
- angular.module('app',[uirouter])
-     .controller('appCtrl', ['$scope', '$http', function ($scope, $http) {console.log('这是appCtrl')}])
+ angular.module('app',[uirouter,main])
+     .controller('appCtrl', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+     }])
      .config(routes)
-     .directive('mainPage', function() {
-       return {
-         restrict: 'EA',
-         scope: false,
-         template: '<div>这是home</div>',
-         replace: true
-       }
-     })
+     .config(['$httpProvider', ($httpProvider) => {
+       $httpProvider.defaults.withCredentials = true
+     }])
 
